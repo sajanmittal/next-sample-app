@@ -29,13 +29,13 @@ jobs:
           node-version: 16
       - run: npm install
       - run: npm run build    
-      - run: cd .next; zip -r deploy.zip .
-      - run: pwd
+      - run: cd .next; zip -r ../deploy.zip .
+      - run: ls *.zip
         env:
             CI: true
         
       - name: Deploy to EB
-        run: pwd
+        run: ls *.zip
       - uses: einaregilsson/beanstalk-deploy@v20
         with:
           aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
