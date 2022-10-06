@@ -34,7 +34,7 @@ jobs:
           application_name: winvinaya-app
           environment_name: winvinaya-dev
           existing_bucket_name: elasticbeanstalk-us-east-1-988347388587
-          version_label: Sample
+          version_label: ${{ github.run_number }}
           region: us-east-1
           deployment_package: src/deploy.zip
         
