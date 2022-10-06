@@ -30,20 +30,18 @@ jobs:
       - run: npm install
       - run: npm run build    
       - run: cd .next; zip -r ../deploy.zip .
-      - run: ls *.zip
         env:
             CI: true
         
       - name: Deploy to EB
-        run: ls *.zip
-      - uses: einaregilsson/beanstalk-deploy@v20
+        uses: einaregilsson/beanstalk-deploy@v20
         with:
           aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           application_name: winvinaya-app
           environment_name: winvinaya-dev
           existing_bucket_name: elasticbeanstalk-us-east-1-988347388587
-          version_label: 1
+          version_label: Sample
           region: us-east-1
           deployment_package: src/deploy.zip
         
