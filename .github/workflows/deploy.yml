@@ -23,7 +23,7 @@ jobs:
         with:
           node-version: 16
       - run: npm install
-      - run: npm run build 
+      - run: npm run build
       - run: zip -r deploy.zip package.json .next
 
       - name: Deploy to EB
