@@ -5,9 +5,6 @@ on:
       version:
         description: Manual   
         required: false
-  push:
-    branches:
-    - main
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -41,11 +38,11 @@ jobs:
       - name: Deploy to EB
         uses: einaregilsson/beanstalk-deploy@v20
         with:
-        aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        application_name: winvinaya-app
-        environment_name: winvinaya-dev
-        version_label: 1
-        region: us-east-1
-        deployment_package: deploy.zip
+          aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          application_name: winvinaya-app
+          environment_name: winvinaya-dev
+          version_label: 1
+          region: us-east-1
+          deployment_package: deploy.zip
         
